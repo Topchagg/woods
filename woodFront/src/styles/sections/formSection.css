@@ -1,0 +1,28 @@
+.form-text-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.input {
+    height: 80px;
+}
+
+.text-area {
+    height: 250px;
+    overflow: hidden;
+}
+
+.text-wrapper {
+    width: 500px;
+    text-align: center;
+}
+
+.form-img-wrapper {
+    width: 405px;
+    height: 405px;
+}
+ 
+.oak {
+    width: 400px;
+    height: 400px;
+}

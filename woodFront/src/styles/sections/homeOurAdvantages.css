@@ -1,0 +1,17 @@
+.our-advantages-wrapper {
+    padding: 40px;
+}
+
+.about-advantages {
+    display: flex;
+    justify-content: space-around;
+}
+
+.advantages-img-wrapper {
+    margin-top: 50px;
+}
+
+.advantages-item {
+    width: 300px;
+    margin-top: 50px;
+}

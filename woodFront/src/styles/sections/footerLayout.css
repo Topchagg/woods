@@ -1,0 +1,15 @@
+.footer {
+    height: 300px;
+    width: 100%;
+    box-shadow: 0px 0px 100px 3px floralwhite;
+}
+
+.total-info-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone-info-wrapper {
+    width: 300px;
+    line-height: 50px;
+}

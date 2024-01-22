@@ -1,0 +1,29 @@
+.presentation-wrapper {
+    height: 600px;
+    width: 1200px;
+    padding: 50px;
+    border-radius: 43px;
+    background: #1E0C06;
+    float: right;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: floralwhite 0px 0px 20px 1px;
+}
+
+.info-title {
+    width: 450px;
+}
+
+.product-info {
+    width: 300px;
+    color: #FFDBBB;
+    margin-top: 25px;
+}
+
+.open-section-btn-wrapper {
+    margin-top: 40px;
+}
+
+.example-works-wrapper {
+    width: 50%;
+}

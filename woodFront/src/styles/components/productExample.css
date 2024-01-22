@@ -1,0 +1,22 @@
+.product-example {
+    width: 205px;
+}
+
+.img-wood-wrapper {
+    height: 205px;
+    width: 205px;
+}
+
+.wood-img {
+    size: auto;
+}
+
+.name-wrapper {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.main-charcs {
+    text-align: center;
+    margin-top: 20px;
+}
