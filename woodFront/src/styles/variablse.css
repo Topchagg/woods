@@ -1,21 +1,37 @@
+@font-face {
+    font-family: 'KyivTypeSans';
+    src: url('../../public/fonts/kyivTypeSans/OTF/KyivTypeSans-Medium-.otf');
+}
+
+@font-face {
+    font-family: 'inter';
+    src: url('../../public/fonts/inter/Inter-Regular.ttf');
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    color: inherit;
 }
 
 .title {
-    font-size: 90px;
+    font-size: 85px;
     color: #F5F5F5;
+    text-transform: uppercase;
+    font-family: 'KyivTypeSans';
+}
+
+.text-center {
     text-align: center;
     margin: 0 auto;
-    text-transform: uppercase;
 }
 
 .main-text {
-    font-size: 30px;
+    font-size: 25px;
     color: #F5F5F5;
+    font-family: 'inter';
 }
 
 .default-margin {
@@ -24,6 +40,10 @@
 
 .section-margin {
     margin-top: 250px;
+}
+
+.small-margin {
+    margin-top: 50px;
 }
 
 .content-container {
@@ -35,8 +55,8 @@
 .section {
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
 }
 
 .default-background {

@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "framer-motion": "^10.18.0",
+    "libphonenumber-js": "^1.10.54",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.3"
+    "react-phone-number-input": "^3.3.9",
+    "react-router-dom": "^6.21.3",
+    "react-scroll": "^1.9.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

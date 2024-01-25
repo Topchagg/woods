@@ -1,8 +1,13 @@
-import Button from '../components/button'
+import { useState } from 'react'
+import MessageForm from '../components/messageForm'
 
 import '../styles/sections/formSection.css'
 
 const FormSection = () => {
+    const [name, setName] = useState('')
+    const [phoneNumber, setPhonenumber] = useState('')
+    const [message, setMessage] = useState('')
+
     return (
         <div className="home-form-section section default-background default-padding">
             <div className="content-container">
@@ -11,15 +16,8 @@ const FormSection = () => {
                         Any question?
                     </div>
                     <div className="form-text-wrapper">
-                        <div className="form-wrapper">
-                            <form action="">
-                                <div className="input-wrapper"><input className='default-input input' placeholder={'Your name'} type="text"/></div>
-                                <div className="input-wrapper"><input className='default-input input' placeholder={'Your telephone number'} type="text"/></div>
-                                <div className="input-wrapper"><textarea className='text-area default-input' placeholder={'Your text'} ></textarea></div>
-                                <div className="form-btn-wrapper small-margin">
-                                    <Button text={'Send'}/>
-                                </div>
-                            </form>
+                        <div className="form-wrapper" id={'message-form'}>
+                            <MessageForm/>
                         </div>
                         <div className="text-other-wrapper">
                             <div className="text-wrapper small-margin main-text">

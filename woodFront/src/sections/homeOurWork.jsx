@@ -5,7 +5,7 @@ const HomeOurWork = () => {
         <div className="section default-background">
             <div className="content-container">
                 <div className="example-our-work section-margin">
-                    <div className="title">
+                    <div className="title text-center">
                         Our Work
                     </div>
                     <div className="carousel">

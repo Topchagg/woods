@@ -1,9 +1,9 @@
-
+import ContactSection from "../sections/contact"
 
 const Contact = () => {
     return (
         <>
-        
+            <ContactSection/>
         </>
     )
 }

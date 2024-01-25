@@ -7,7 +7,7 @@ const HomeWeWorkWith = () => {
         <div className="section default-background">
             <div className="content-container">
                 <div className="we-work-with-wrapper section-margin">
-                    <div className="title-wrapper title">
+                    <div className="we-work-with-title title">
                         The wood we work with
                     </div>
                     <div className="woods-wrapper">

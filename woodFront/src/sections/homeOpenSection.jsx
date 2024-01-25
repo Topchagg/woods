@@ -1,4 +1,5 @@
 import Button from '../components/button'
+import { motion } from 'framer-motion'
 
 import '../styles/sections/homeOpenSection.css'
 
@@ -6,25 +7,25 @@ const HomeOpenSection = () => {
     return (
     <div className="home-open-section section image-background default-padding">
         <div className="content-container">
-            <div className="presentation-wrapper default-margin ">
-                <div className="info-wrapper">
-                    <div className="info-title title">
+            <motion.div className="presentation-wrapper default-margin" initial={{x:-1600, opacity:0}} animate={{x:0, opacity:1}} transition={{duration:0.7}} >
+                <div className="info-wrapper small-margin">
+                    <motion.div className="info-title title" initial={{x:-1600,opacity:0}} animate={{x:0,opacity:1}} transition={{duration:1}} >
                         SOLID WOOD PRODUCTS
-                    </div>
-                    <div className="product-info main-text">
+                    </motion.div>
+                    <motion.div className="product-info main-text" initial={{y:600,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:0.5, delay:0.7}}>
                         Oak, beech, ash from <strong>1700 CZK</strong> per m3
-                    </div>
-                    <div className="open-section-btn-wrapper">
-                        <Button text={'order'} link={''} />
-                    </div>
+                    </motion.div>
+                    <motion.div initial={{y:600, opacity:0}} animate={{y:0,opacity:1}} transition={{delay:1, transition:0.5}} className="open-section-btn-wrapper">
+                        <Button text={'Order'} link={''} />
+                    </motion.div>
                 </div>
-                <div className="line-wrapper">
+                <motion.div initial={{y:-1000,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:1.3}} className="line-wrapper">
                     <img src="line.png" alt="" />
-                </div>
+                </motion.div>
                 <div className="example-works-wrapper">
 
                 </div>
-            </div>
+            </motion.div>
         </div>
     </div>
     )

@@ -8,7 +8,7 @@ class wood(models.Model):
     
 class question(models.Model):
     name = models.CharField(max_length=50)
-    telNumb = models.CharField(max_length=10)
+    telNumb = models.CharField(max_length=13)
     text = models.CharField(max_length=500)
     time = models.TimeField()
 

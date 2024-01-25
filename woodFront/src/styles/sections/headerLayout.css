@@ -5,6 +5,8 @@
     background: #1E0C06;
     display: flex;
     justify-content: space-around;
+    box-shadow: 1px 1px 5px 1px floralwhite;
+    position: fixed;
 }
 
 .nav-bar {
