@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class wood(models.Model):
@@ -10,7 +11,7 @@ class question(models.Model):
     name = models.CharField(max_length=50)
     telNumb = models.CharField(max_length=13)
     text = models.CharField(max_length=500)
-    time = models.TimeField()
+    time = models.DateTimeField(default=timezone.now)
 
 class ourWork(models.Model):
     name = models.CharField(max_length=100)

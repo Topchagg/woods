@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+admin.site.register(wood)
+admin.site.register(ourWork)
+admin.site.register(techInfo)
+admin.site.register(question)

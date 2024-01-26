@@ -24,34 +24,38 @@ export const useFetch = (url) => {
     return {data,loading,error}
 }
 
-export const useToggle = (initState) => {
-    const [state, setState] = useState(initState)
-    
-    const toggle = () => {
-        setState((prevValue) => !prevValue)
-    }
 
-    return [state, toggle];
-}
-
-export const useInput = (initState) => {
-    const [state, setState] = useState(initState)
-    function handleChange(e) {
-        setState(e.target.value)
-    }
-    return [state,handleChange]
-} 
-
-export const useDebounce = (value, delay) => {
-    const [debounceValue, setDebounceValue] = useState();
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setDebounceValue(value)
-        },delay);
-        return () => {
-            clearTimeout(timer);
+export const usePost = () => {
+    const [response, setResponse] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(' ');
+  
+    async function postData(url, data) {
+      setIsLoading(true);
+  
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      };
+  
+      try {
+        const res = await fetch(url, requestOptions);
+        const result = await res.json();
+        setResponse(result);
+      } 
+      finally {   
+        if(res.ok === false) {
+            setError(!res.ok)
         }
-    },[value])
-    return debounceValue
-}
+        else {
+            setError(!res.ok)
+        }
+        setIsLoading(false);
+      }
+    }
+  
+    return { postData, isLoading, response, error };  
+  }

@@ -33,7 +33,7 @@ const Header = () => {
     return (
         <AnimatePresence>
             {isScrollingUp && 
-            <motion.header className='header' initial={{y:-90,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:0.5}} exit={{y:-90, opacity:0}}>
+            <motion.header className='header' initial={{y:-90,opacity:0}} animate={{y:0,opacity:0.9}} transition={{duration:0.5}} exit={{y:-90, opacity:0}}>
             <div className="logo-wrapper">
                 <Link to={'/'}><img className='header-logo' src="logo.png" alt="" /></Link>
             </div>

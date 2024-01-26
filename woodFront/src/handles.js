@@ -1,15 +1,14 @@
-import { isValidPhoneNumber, parsePhoneNumber } from 'libphonenumber-js'
-
-export const handleOnChange = (setFunc,value,length) => {
-    if(value.length > length){
+export const handleOnChange = (setFunc,value, minLength, maxLength, setIsValid) => {
+    if(value.length > maxLength){
         
     }
-    else if(isValidPhoneNumber(value,'UA')){
-        const phoneNumber = parsePhoneNumber(value,'UA')    
-        setFunc(phoneNumber.number)
+    else if( value.length < minLength) {
+        setFunc(value)
+        setIsValid(false) 
     }
     else {
        setFunc(value)
+       setIsValid(true)
     }
 }
 
