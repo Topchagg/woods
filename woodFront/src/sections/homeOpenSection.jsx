@@ -15,11 +15,11 @@ const HomeOpenSection = () => {
                     <motion.div className="product-info main-text" initial={{y:600,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:0.5, delay:0.7}}>
                         Oak, beech, ash from <strong>1700 CZK</strong> per m3
                     </motion.div>
-                    <motion.div initial={{y:600, opacity:0}} animate={{y:0,opacity:1}} transition={{delay:1, transition:0.5}} className="open-section-btn-wrapper">
+                    <motion.div initial={{y:600, opacity:0}} animate={{y:0,opacity:1}} transition={{delay:1, transition:0.5}} className="open-section-btn-wrapper small-margin">
                         <Button text={'Order'} link={''} />
                     </motion.div>
                 </div>
-                <motion.div initial={{y:-1000,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:1.3}} className="line-wrapper">
+                <motion.div initial={{y:-1000,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:1.3}} className="line-wrapper small-margin">
                     <img src="line.png" alt="" />
                 </motion.div>
                 <div className="example-works-wrapper">

@@ -4,7 +4,7 @@ import '../styles/components/button.css'
 
 const Button = (props) => {
     return (
-        <Link path={props.link}>
+        <Link to={props.link}>
             <button className="btn main-text">
                 {props.text}  
             </button>

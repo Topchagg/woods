@@ -21,3 +21,9 @@ class ourWork(models.Model):
 class techInfo(models.Model):
     supportTel = models.CharField(max_length=10)
     adress = models.URLField()
+
+class selfProduct(models.Model):
+    image = models.URLField()
+    price = models.IntegerField()
+    name = models.CharField(max_length=20)
+    

@@ -12,6 +12,13 @@ const HomeWeWorkWith = () => {
                     </div>
                     <div className="woods-wrapper">
                         <ProductExample name={'Oak'}/>
+                        <ProductExample name={'Oak'}/>
+                        <ProductExample name={'Oak'}/>
+                        <ProductExample name={'Oak'}/>
+                        <ProductExample name={'Oak'}/>
+                        <ProductExample name={'Oak'}/>
+                        <ProductExample name={'Oak'}/>
+                        <ProductExample name={'Oak'}/>
                     </div>
                 </div>
             </div>

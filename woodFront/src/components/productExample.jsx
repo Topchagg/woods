@@ -2,7 +2,7 @@ import '../styles/components/ProductExample.css'
 
 const ProductExample = (props) => {
     return (
-        <div className="product-example">
+        <div className="product-example-wrapper">
             <div className="img-wood-wrapper">
                 <img className='wood-img' src="oak.png" alt="" />
             </div>

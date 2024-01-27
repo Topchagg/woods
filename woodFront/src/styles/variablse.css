@@ -21,6 +21,7 @@
     color: #F5F5F5;
     text-transform: uppercase;
     font-family: 'KyivTypeSans';
+    opacity: 1;
 }
 
 .text-center {
@@ -49,14 +50,11 @@
 .content-container {
     width: 90%;
     margin: 0 auto;
-    /* border: solid red 3px; */
 }
 
 .section {
     width: 100%;
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
 }
 
 .default-background {
@@ -131,4 +129,11 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.choice-block-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    text-align: center;
+    justify-content: center;
 }

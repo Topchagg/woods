@@ -1,5 +1,10 @@
-.product-example {
+.product-example-wrapper {
     width: 205px;
+    margin-left: 150px;
+}
+
+.product-example-wrapper:first-of-type {
+    margin: 0;
 }
 
 .img-wood-wrapper {

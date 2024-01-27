@@ -1,0 +1,15 @@
+.page-not-found-wrapper {
+   background-image: url('./background.png');
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.err-text {
+    font-size: 500px;
+    color: aliceblue;
+    text-align: center;
+}
+
+.btn-wrapper {
+    text-align: center;
+}

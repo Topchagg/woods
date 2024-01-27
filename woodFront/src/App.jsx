@@ -5,7 +5,7 @@ import Home from './pages/home'
 import Gallery from './pages/gallery'
 import AboutUs from './pages/aboutUs'
 import Contact from './pages/contact'
-import NotFound from './pages/404err'
+import NotFound from './pages/pageNotFound'
 
 import './styles/variablse.css'
 

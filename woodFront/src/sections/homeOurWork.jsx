@@ -1,4 +1,5 @@
-import '../styles/sections/homeOurWOrk.css'
+import OurWorkComponent from '../components/ourWorkComponent'
+import Carousel from '../components/carousel'
 
 const HomeOurWork = () => {
     return (
@@ -8,8 +9,15 @@ const HomeOurWork = () => {
                     <div className="title text-center">
                         Our Work
                     </div>
-                    <div className="carousel">
-
+                    <div className="carousel-wrapper default-margin">
+                        <Carousel Component={OurWorkComponent} data={
+                            [{workImg:'./kitchenImg',
+                            woodName:'Oak',
+                            path:'/'},
+                            {workImg:'./kitchenImg',
+                            woodName:'Oak',
+                            path:'/'}]
+                            } />
                     </div>
                 </div>
             </div>  

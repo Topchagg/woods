@@ -1,12 +1,8 @@
-import { useState } from 'react'
 import MessageForm from '../components/messageForm'
 
 import '../styles/sections/formSection.css'
 
 const FormSection = () => {
-    const [name, setName] = useState('')
-    const [phoneNumber, setPhonenumber] = useState('')
-    const [message, setMessage] = useState('')
 
     return (
         <div className="home-form-section section default-background default-padding">

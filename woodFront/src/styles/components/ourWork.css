@@ -1,0 +1,23 @@
+.our-work-wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.our-work-img-wrapper {
+    width: 100%;
+    height: 650px;
+    border-radius: 40px;
+    border: solid floralwhite 1px;
+    cursor: pointer;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.product-choice {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+

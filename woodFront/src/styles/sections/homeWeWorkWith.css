@@ -9,5 +9,30 @@ height:  auto;
 }
 
 .woods-wrapper {
+    display: flex;
     margin-top: 60px;
+    padding-bottom: 50px;
+    width: 100%;
+    overflow-x: scroll;
+    /* border: solid floralwhite 1px; */
 }
+
+.woods-wrapper::-webkit-scrollbar {
+    background-color: gray;
+    border-radius: 40px;
+    height: 10px;
+}
+
+.woods-wrapper::-webkit-scrollbar-track {
+    background-color: gray;
+    border-radius: 40px;
+}
+
+.woods-wrapper::-webkit-scrollbar-thumb {
+    background-color: aliceblue;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+
+
