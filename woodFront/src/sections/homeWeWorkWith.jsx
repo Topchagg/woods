@@ -1,4 +1,4 @@
-import ProductExample from '../components/productExample'
+import Wood from '../components/wood'
 
 import '../styles/sections/HomeWeWorkWith.css'
 
@@ -11,14 +11,14 @@ const HomeWeWorkWith = () => {
                         The wood we work with
                     </div>
                     <div className="woods-wrapper">
-                        <ProductExample name={'Oak'}/>
-                        <ProductExample name={'Oak'}/>
-                        <ProductExample name={'Oak'}/>
-                        <ProductExample name={'Oak'}/>
-                        <ProductExample name={'Oak'}/>
-                        <ProductExample name={'Oak'}/>
-                        <ProductExample name={'Oak'}/>
-                        <ProductExample name={'Oak'}/>
+                        <Wood name={'Oak'}/>
+                        <Wood name={'Oak'}/>
+                        <Wood name={'Oak'}/>
+                        <Wood name={'Oak'}/>
+                        <Wood name={'Oak'}/>
+                        <Wood name={'Oak'}/>
+                        <Wood name={'Oak'}/>
+                        <Wood name={'Oak'}/>
                     </div>
                 </div>
             </div>

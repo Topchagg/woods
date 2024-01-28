@@ -39,6 +39,10 @@ const MessageForm = () => {
             setPhonenumber('')
             setMessage('')
             setFormIsValid(true)
+
+            setMessageIsValid(!messageIsValid)
+            setNameIsValid(!nameIsValid)
+            setPhonenumberIsValid(!phoneNumberIsValid)
         }
         else {
             setFormIsValid(false)
@@ -52,7 +56,7 @@ const MessageForm = () => {
         <form action="">
             {formIsValid || <motion.div animate={{opacity:0}} transition={{duration:5}} className="err-component-wrapper"><ErrComponent text={'In red fields incorrect data'}/></motion.div>}
             <div className="input-wrapper"><input onChange={(e) => validOnlyChar(handleOnChange,setName,e.target.value,1,20,setNameIsValid)} className={inputNameStyle} value={name} placeholder={'Your name'} type="text"/></div>
-            <div className="input-wrapper"><input onChange={(e) => validOnlyNumb(handleOnChange,setPhonenumber,e.target.value,10,10,setPhonenumberIsValid)} className={inputPhoneNumberStyle} value={phoneNumber} placeholder={'Your telephone number'} type="number"/></div>
+            <div className="input-wrapper"><input onChange={(e) => validOnlyNumb(handleOnChange,setPhonenumber,e.target.value,10,10,setPhonenumberIsValid)} className={inputPhoneNumberStyle} value={phoneNumber} placeholder={'Your telephone number'} type="text"/></div>
             <div className="input-wrapper"><textarea onChange={(e) => handleOnChange(setMessage, e.target.value,0,500,setMessageIsValid)} className='text-area default-input' value={message} placeholder={'Your text'} ></textarea></div>
             <div className="form-btn-wrapper small-margin" onClick={onSubmitMessage}>
                 <Button text={'Send'}/>

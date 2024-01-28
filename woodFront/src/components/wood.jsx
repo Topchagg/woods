@@ -1,6 +1,6 @@
-import '../styles/components/ProductExample.css'
+import '../styles/components/wood.css'
 
-const ProductExample = (props) => {
+const Wood = (props) => {
     return (
         <div className="product-example-wrapper">
             <div className="img-wood-wrapper">
@@ -19,4 +19,4 @@ const ProductExample = (props) => {
     )
 }
 
-export default ProductExample
+export default Wood

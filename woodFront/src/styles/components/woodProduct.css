@@ -1,0 +1,13 @@
+.wood-product-wrapper {
+    width: 410px;
+    height: 410px;
+    border-radius: 42px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+

@@ -15,8 +15,8 @@ urlpatterns = [
     path('our-work/<int:pk>', ourWork.as_view({'delete':'destroy'})),
     path('our-work/<int:pk>', ourWork.as_view({'put':'update'})),
 
-    path('wood', wood.as_view({'get':'list'})),
-    path('wood', wood.as_view({'post','create'})),
+    path('all-woods', wood.as_view({'get':'list'})),
+    path('create-woods', wood.as_view({'post','create'})),
     path('wood/<int:pk>', wood.as_view({'delete':'destroy'})),
     path('wood/<int:pk>', wood.as_view({'put':'update'})),
 ]

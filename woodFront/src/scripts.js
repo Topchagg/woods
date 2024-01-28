@@ -9,7 +9,8 @@ export const checkIsValid = (states) => {
 }
 
 export const validOnlyChar = (func,setFunc,value,minLength,maxLength,setIsValid) => {
-    if(/\d/.test(value) || /[!@#$%^&*(),.?":{}|<>_+-]/.test(value)){
+    console.log(/[!@#$%^&*(),.?":{}|<>;]/.test(value))
+    if(/\d/.test(value) || /[+!)@('"><,}{.:;=~`№?#|$%^&*()_-]/.test(value)){
         
     }
     else {
@@ -19,7 +20,7 @@ export const validOnlyChar = (func,setFunc,value,minLength,maxLength,setIsValid)
 }
 
 export const validOnlyNumb = (func,setFunc,value,minLength,maxLength,setIsValid) => {
-    if(/[а-яА-Яa-zA-Z]/.test(value) || /[!@#$%^&*(),.?":{}|<>_+-]/.test(value)){
+    if(/[а-яА-Яa-zA-Z]/.test(value) || /[+!)@('"><,}{.:~`|;№?#=$%^&*()_-]/.test(value)){
 
     }
     else {

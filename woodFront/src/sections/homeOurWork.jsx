@@ -11,12 +11,12 @@ const HomeOurWork = () => {
                     </div>
                     <div className="carousel-wrapper default-margin">
                         <Carousel Component={OurWorkComponent} data={
-                            [{workImg:'./kitchenImg',
+                            [{workImg:'./kitchen.png',
                             woodName:'Oak',
-                            path:'/'},
-                            {workImg:'./kitchenImg',
+                            slug:'/'},
+                            {workImg:'./kitchen.png',
                             woodName:'Oak',
-                            path:'/'}]
+                            slug:'/'}]
                             } />
                     </div>
                 </div>

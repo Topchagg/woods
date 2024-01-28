@@ -1,5 +1,8 @@
-import Button from '../components/button'
 import { motion } from 'framer-motion'
+
+import Carousel from '../components/carousel.jsx'
+import Button from '../components/button'
+import WoodProduct from '../components/woodProduct.jsx'
 
 import '../styles/sections/homeOpenSection.css'
 
@@ -22,8 +25,15 @@ const HomeOpenSection = () => {
                 <motion.div initial={{y:-1000,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:1.3}} className="line-wrapper small-margin">
                     <img src="line.png" alt="" />
                 </motion.div>
-                <div className="example-works-wrapper">
-
+                <div className="example-works-wrapper carousel-wrapper">
+                    <Carousel Component={WoodProduct}data={
+                            [{img:'./table.png',
+                            woodName:'Oak',
+                            slug:'/'},
+                            {img:'./table.png',
+                            woodName:'Oak',
+                            slug:'/'}]
+                            }/>
                 </div>
             </motion.div>
         </div>

@@ -26,4 +26,5 @@ class selfProduct(models.Model):
     image = models.URLField()
     price = models.IntegerField()
     name = models.CharField(max_length=20)
+    wood = models.ForeignKey(wood, on_delete=(models.CASCADE))
     

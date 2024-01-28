@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import ChoiceBlock from './choiceBlock'
@@ -11,16 +12,18 @@ const OurWorkComponent = (props) => {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <div className="our-work-wrapper">
-            <div style={{backgroundImage: `url('${'./kitchen.png'}')`}} className="our-work-img-wrapper" onMouseEnter={() => setIsHover(!isHover)} onMouseLeave={() => setIsHover(!isHover)}>
-            <AnimatePresence>
-                {isHover && <motion.div exit={{opacity:0}} transition={{duration:0.4}} className='product-choice'>
-                        <ChoiceBlock path={props.path} title={props.woodName} />
-                        <ChoiceBlock path={props.path} title={props.woodName}/>
-                    </motion.div>}
-            </AnimatePresence>
+        <Link to={`our-work/${props.slug}`}>
+            <div className="our-work-wrapper">
+                <div style={{backgroundImage: `url('${props.workImg}')`}} className="our-work-img-wrapper" onMouseEnter={() => setIsHover(!isHover)} onMouseLeave={() => setIsHover(!isHover)}>
+                <AnimatePresence>
+                    {isHover && <motion.div exit={{opacity:0}} transition={{duration:0.4}} className='product-choice'>
+                            <ChoiceBlock title={props.woodName} />
+                            <ChoiceBlock title={props.woodName}/>
+                        </motion.div>}
+                </AnimatePresence>
+                </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

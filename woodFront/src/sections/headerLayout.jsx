@@ -39,7 +39,7 @@ const Header = () => {
             </div>
             <div className="nav-bar">
                 <Link to={'gallery'}><div className="nav-item">Gallery</div></Link>
-                <div className="nav-item">Price for services</div>
+                <Link to={'wood-selfproducts'}><div className="nav-item">Our products</div></Link>
                 <Link to={'about-us'}><div className="nav-item">About us</div></Link>
                 <Link to={'contact'}><div className="nav-item">Contact</div></Link>
             </div>
