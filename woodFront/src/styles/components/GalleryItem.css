@@ -1,0 +1,13 @@
+.img-wrapper {
+    height: 400px;
+    width: 400px;
+    border-radius: 50px;
+    border: solid floralwhite 1px;
+    overflow: hidden;
+}
+
+.info-item-wrapper {
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+}

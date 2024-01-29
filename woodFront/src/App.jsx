@@ -8,12 +8,23 @@ import Contact from './pages/contact'
 import NotFound from './pages/pageNotFound'
 import WoodSelfProducts from './pages/wood-selfproducts'
 
-import GalleryPage from './pages/GalleryPage'
+import ProductGallery from './pages/productGallery'
 
 import './styles/variablse.css'
 
 
+
 function App() {
+
+  const socket = new WebSocket('ws://127.0.0.1:8000/ws/updates/');
+
+  socket.onopen = async function(e)  {
+    console.log('we`re open')
+  };
+
+  socket.onmessage = function(event) {
+    console.log(event)
+  };
 
   return (
     <Routes>
@@ -25,7 +36,7 @@ function App() {
         <Route path={"wood-selfproducts"} element={<WoodSelfProducts/>} />
         <Route path={"*"} element={<NotFound/>} />
 
-        <Route path={'/:name'} element={<GalleryPage/> }/>
+        <Route path={'/:name'} element={<ProductGallery/>} />
 
       </Route>
     </Routes>

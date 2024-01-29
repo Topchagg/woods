@@ -14,7 +14,7 @@ const WoodSelfProducts = () => {
                </Link>
             </div>
             <div className="choice-selfproducts-wrapper choice-wrapper">
-                <Link to={'/products'}>
+                <Link to={'/message'}>
                     <img className='img' src="./kitchen.png" alt="" />
                     <div className="main-text text-center">
                         Products

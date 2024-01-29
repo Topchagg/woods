@@ -1,0 +1,9 @@
+.grid-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 390px);
+    grid-auto-rows: 520px;
+    width: 100%;
+    justify-content: space-between;
+    column-gap: 20px;
+}
