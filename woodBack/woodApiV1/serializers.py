@@ -24,5 +24,5 @@ class techInfoSerializer(ModelSerializer):
 class ourWorkSerializer(ModelSerializer):
 
     class Meta:
-        model = ourWork
+        model = ourProduct
         fields = ['pk','name','price','image']

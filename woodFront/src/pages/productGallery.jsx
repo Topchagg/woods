@@ -1,17 +1,27 @@
 import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
 
-import { useFetch } from "../customHooks"
+import { useIsUpdateHashMemo } from "../store"
+
 import Grid from "../components/Grid"
 import GalleryItem from "../components/galleryItem"
 
 
+
 const ProductGallery = () => {
 
+    const { isUpdate } = useIsUpdateHashMemo();
+
     const {name} = useParams()
+    const [isLoading, setIsLoading] = useState(true)
+    const [data,setData] = useState()
 
-    const {data,loading,error} = useFetch(`http://127.0.0.1:8000/all-${name}`)
+    useEffect(() => {
+        setData(JSON.parse(localStorage.getItem(name)))
+        setIsLoading(false)
+    },[isUpdate])
 
-    if(loading === false){
+    if(isLoading === false) {
         return (
             <div className="product-galler-wrapper default-padding default-background">
                <div className="title text-center default-margin">

@@ -16,5 +16,5 @@ class techInfo(ModelViewSet):
     serializer_class = techInfoSerializer
 
 class ourWork(ModelViewSet):
-    queryset = ourWork.objects.all()
+    queryset = ourProduct.objects.all()
     serializer_class = ourWorkSerializer

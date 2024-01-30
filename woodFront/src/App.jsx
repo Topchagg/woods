@@ -1,4 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
+import { useIsUpdateHashMemo } from './store'
+import { fetchData } from './webSockets'
 
 import Layout from './pages/layout'
 import Home from './pages/home'
@@ -7,25 +9,33 @@ import AboutUs from './pages/aboutUs'
 import Contact from './pages/contact'
 import NotFound from './pages/pageNotFound'
 import WoodSelfProducts from './pages/wood-selfproducts'
-
 import ProductGallery from './pages/productGallery'
 
 import './styles/variablse.css'
 
+const socket = new WebSocket('ws://127.0.0.1:8000/ws/updates/');
+
+
+socket.onopen = async () => {
+  fetchData('http://127.0.0.1:8000/all-woods').then(data => {
+    localStorage.setItem('woods',JSON.stringify(data))
+  })
+  fetchData('http://127.0.0.1:8000/all-products').then(data => {
+    localStorage.setItem('products', JSON.stringify(data))
+  })
+}
 
 
 function App() {
+  const {setIsUpdate } = useIsUpdateHashMemo();
 
-  const socket = new WebSocket('ws://127.0.0.1:8000/ws/updates/');
-
-  socket.onopen = async function(e)  {
-    console.log('we`re open')
-  };
-
-  socket.onmessage = function(event) {
-    console.log(event)
-  };
-
+  socket.onmessage = async () => {
+    await fetchData('http://127.0.0.1:8000/all-woods').then(data => {
+      localStorage.setItem('woods',JSON.stringify(data))
+    })
+    setIsUpdate()
+  }
+  
   return (
     <Routes>
       <Route path="/" element={<Layout/>} >

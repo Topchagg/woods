@@ -1,9 +1,9 @@
 from django.db import models
 from django.utils import timezone
-from django.db.models.signals import post_save
+from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
-from django.core.serializers import serialize
 from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 import json
 import asyncio
 
@@ -18,7 +18,7 @@ class question(models.Model):
     text = models.CharField(max_length=500)
     time = models.DateTimeField(default=timezone.now)
 
-class ourWork(models.Model):
+class ourProduct(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField()
     image = models.URLField()
@@ -34,19 +34,24 @@ class selfProduct(models.Model):
     wood = models.ForeignKey(wood, on_delete=(models.CASCADE))
     
 
-@receiver(post_save, sender=wood)
-def handle_post_save_wood(sender, instance, **kwargs):
-    channel_layer = get_channel_layer()
-    queryset = wood.objects.all()
-    serialized_data = serialize('json', queryset)
-    
-    channel_layer.group_send(
-        'updates',
-        {
-            'type': 'notification.message',
-            'message': json.dumps({'model': 'wood', 'data': serialized_data})
-        }
-    )
 
-# Вызываем функцию для отправки уведомления для всех записей wood после каждого сохранения
-post_save.connect(handle_post_save_wood, sender=wood)
+@receiver(post_delete, sender=wood)
+def sendNotification(sender, instance, **kwargs):
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)('updates', {
+        'type': 'send_notification',
+        'message': instance.id,
+    })
+
+@receiver(post_save, sender=wood)
+def sendNotification(sender, instance, **kwargs):
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)('updates', {
+        'type': 'send_notification',
+        'message': instance.id,
+    })
+
+post_save.connect(sendNotification,wood)
+post_delete.connect(sendNotification,wood)
+post_save.connect(sendNotification,ourProduct)
+post_delete.connect(sendNotification,ourProduct)
