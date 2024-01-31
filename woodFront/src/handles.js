@@ -1,3 +1,4 @@
+
 export const handleOnChange = (setFunc,value, minLength, maxLength, setIsValid) => {
     if(value.length > maxLength){
         
@@ -11,5 +12,3 @@ export const handleOnChange = (setFunc,value, minLength, maxLength, setIsValid) 
        setIsValid(true)
     }
 }
-
-    

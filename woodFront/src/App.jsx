@@ -1,4 +1,5 @@
 import {Routes, Route} from 'react-router-dom'
+
 import { useIsUpdateHashMemo } from './store'
 import { fetchData } from './webSockets'
 
@@ -29,9 +30,12 @@ socket.onopen = async () => {
 function App() {
   const {setIsUpdate } = useIsUpdateHashMemo();
 
-  socket.onmessage = async () => {
-    await fetchData('http://127.0.0.1:8000/all-woods').then(data => {
-      localStorage.setItem('woods',JSON.stringify(data))
+  socket.onmessage = async (e) => {
+    const parsedData = JSON.parse(e.data);
+    const message = parsedData.message;
+
+    await fetchData(message.url).then(data => {
+      localStorage.setItem(message.model,JSON.stringify(data))
     })
     setIsUpdate()
   }

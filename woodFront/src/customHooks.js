@@ -24,8 +24,12 @@ export const useFetch = (url) => {
     return {data,loading,error}
 }
 
-
-export const usePost = () => {
+/**
+ *  only POST or PUT method !!!!!!!!!!
+ * @param {string} method 
+* 
+ */
+export const usePost = (method) => {
     const [response, setResponse] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(' ');
@@ -34,7 +38,7 @@ export const usePost = () => {
       setIsLoading(true);
   
       const requestOptions = {
-        method: 'POST',
+        method: method,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -59,3 +63,23 @@ export const usePost = () => {
   
     return { postData, isLoading, response, error };  
   }
+
+export const useDelete = () => {
+  const[isLoading,setIsLoading] = useState(true)
+  const[error,setError] = useState(false)
+
+  const deleteData = async (url) => {
+    try {
+      await fetch(url)
+    }
+    catch(e){
+      setError(e)
+    }
+    finally {
+      setIsLoading(false)
+    }
+  }
+
+  return {deleteData,isLoading,error}
+}
+

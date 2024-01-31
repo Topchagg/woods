@@ -1,7 +1,7 @@
 .img-wrapper {
     height: 400px;
     width: 400px;
-    border-radius: 50px;
+    border-radius: 30px;
     border: solid floralwhite 1px;
     overflow: hidden;
 }
@@ -10,4 +10,9 @@
     width: 400px;
     display: flex;
     justify-content: space-around;
+}
+
+.admin-panel-wrapper {
+    display: flex;
+    margin-left: -25px;
 }

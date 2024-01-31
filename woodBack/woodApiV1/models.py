@@ -4,8 +4,6 @@ from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
-import json
-import asyncio
 
 class wood(models.Model):
     name = models.CharField(max_length=50)
@@ -27,31 +25,32 @@ class techInfo(models.Model):
     supportTel = models.CharField(max_length=10)
     adress = models.URLField()
 
-class selfProduct(models.Model):
-    image = models.URLField()
-    price = models.IntegerField()
-    name = models.CharField(max_length=20)
-    wood = models.ForeignKey(wood, on_delete=(models.CASCADE))
     
 
 
-@receiver(post_delete, sender=wood)
-def sendNotification(sender, instance, **kwargs):
-    channel_layer = get_channel_layer()
-    async_to_sync(channel_layer.group_send)('updates', {
-        'type': 'send_notification',
-        'message': instance.id,
-    })
+def sendNotification(model, url):
+    channel = get_channel_layer()
+    async_to_sync(channel.group_send)(
+        'updates', {
+            'type':'send_notification',
+            'message': {'url':url,'model':model}
+        }
+    )
 
-@receiver(post_save, sender=wood)
-def sendNotification(sender, instance, **kwargs):
-    channel_layer = get_channel_layer()
-    async_to_sync(channel_layer.group_send)('updates', {
-        'type': 'send_notification',
-        'message': instance.id,
-    })
+@receiver(post_save,sender=wood)
+@receiver(post_delete,sender=wood)
+def handleWoodSignal(**kwargs):
+    sendNotification('woods','http://127.0.0.1:8000/all-woods')
 
-post_save.connect(sendNotification,wood)
-post_delete.connect(sendNotification,wood)
-post_save.connect(sendNotification,ourProduct)
-post_delete.connect(sendNotification,ourProduct)
+
+@receiver(post_save,sender=ourProduct)
+@receiver(post_delete,sender=ourProduct)
+def handleProductSignal(**kwargs):
+    sendNotification('products','http://127.0.0.1:8000/all-products')
+
+
+post_save.connect(handleWoodSignal, sender=wood)
+post_delete.connect(handleWoodSignal,sender=wood)
+
+post_save.connect(handleProductSignal,sender=ourProduct)
+post_save.connect(handleProductSignal,sender=ourProduct)

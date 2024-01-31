@@ -16,6 +16,6 @@ class updatesConsumer(AsyncWebsocketConsumer):
 
     async def send_notification(self, event):
         message = event['message']
-        print(event)
+        print('something')
         await self.send(text_data=json.dumps({'type': 'notification.message', 'message': message}))
        

@@ -21,7 +21,7 @@ const ProductGallery = () => {
         setIsLoading(false)
     },[isUpdate])
 
-    if(isLoading === false) {
+    if(isLoading  === false) {
         return (
             <div className="product-galler-wrapper default-padding default-background">
                <div className="title text-center default-margin">

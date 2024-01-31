@@ -22,7 +22,7 @@ const MessageForm = () => {
     const inputPhoneNumberStyle =  phoneNumberIsValid ?  'default-input' : 'is-not-valid-input'
     const inputNameStyle = nameIsValid ? 'default-input' : 'is-not-valid-input'
 
-    const { response, error, isLoading, postData } = usePost();
+    const { postData } = usePost('POST');
 
     const onSubmitMessage = () => {
         const isValid = checkIsValid([nameIsValid,phoneNumberIsValid,messageIsValid])
