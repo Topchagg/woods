@@ -30,9 +30,11 @@ export const useFetch = (url) => {
 * 
  */
 export const usePost = (method) => {
+
     const [response, setResponse] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(' ');
+
   
     async function postData(url, data) {
       setIsLoading(true);
@@ -47,16 +49,11 @@ export const usePost = (method) => {
   
       try {
         const res = await fetch(url, requestOptions);
+        console.log(res)
         const result = await res.json();
         setResponse(result);
       } 
       finally {   
-        if(res.ok === false) {
-            setError(!res.ok)
-        }
-        else {
-            setError(!res.ok)
-        }
         setIsLoading(false);
       }
     }
@@ -68,9 +65,16 @@ export const useDelete = () => {
   const[isLoading,setIsLoading] = useState(true)
   const[error,setError] = useState(false)
 
+  const requestOptions = {
+    method:'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }
+
   const deleteData = async (url) => {
     try {
-      await fetch(url)
+      await fetch(url, requestOptions)
     }
     catch(e){
       setError(e)

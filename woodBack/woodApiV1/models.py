@@ -20,6 +20,7 @@ class ourProduct(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField()
     image = models.URLField()
+    madeFrom = models.ForeignKey(wood, models.CASCADE)
 
 class techInfo(models.Model):
     supportTel = models.CharField(max_length=10)

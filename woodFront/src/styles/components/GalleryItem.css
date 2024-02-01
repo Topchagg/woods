@@ -14,5 +14,11 @@
 
 .admin-panel-wrapper {
     display: flex;
-    margin-left: -25px;
+}
+
+.product-update-item-wrapper {
+    width: 400px;
+    height: 400px;
+    border-radius: 30px;
+    border: floralwhite 1px solid;
 }

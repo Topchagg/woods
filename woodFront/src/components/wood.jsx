@@ -10,10 +10,7 @@ const Wood = (props) => {
                 <strong>{props.name}</strong>
             </div>
             <div className="main-charcs main-text">
-                <p>Expensive</p>
-                <p>Durability</p>
-                <p>Texture</p>
-                <p>Other</p>
+                
             </div>
         </div>
     )

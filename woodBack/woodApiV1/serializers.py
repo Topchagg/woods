@@ -25,4 +25,5 @@ class ourWorkSerializer(ModelSerializer):
 
     class Meta:
         model = ourProduct
-        fields = ['pk','name','price','image']
+        fields = ['pk','name','price','image','madeFrom']
+        read_only_fields = ['pk','madeFrom']

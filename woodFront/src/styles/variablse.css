@@ -85,7 +85,7 @@
     border-radius: 40px;
     background-color: inherit;
     color: #D9D9D982;
-    width: 600px;
+    width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 50px;
@@ -102,7 +102,7 @@
     border-radius: 40px;
     background-color: inherit;
     color: #D9D9D982;
-    width: 600px;
+    width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 50px;
@@ -111,6 +111,14 @@
     transition: 400ms;
     resize: none;
     overflow-y: hidden;
+}
+
+.img-input-wrapper {
+    border: solid floralwhite 1px;
+    margin-top: 10px;
+    border-radius: 60px;
+    height: 30px;
+    cursor: pointer;
 }
 
 .flex-container {
@@ -133,3 +141,6 @@
     height: 100%;
 }
 
+.to-hide {
+    opacity: 0;
+}

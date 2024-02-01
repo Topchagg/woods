@@ -12,7 +12,7 @@ const OurWorkComponent = (props) => {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Link to={`our-work/${props.slug}`}>
+        <Link to={'/products'}>
             <div className="our-work-wrapper">
                 <div style={{backgroundImage: `url('${props.workImg}')`}} className="our-work-img-wrapper" onMouseEnter={() => setIsHover(!isHover)} onMouseLeave={() => setIsHover(!isHover)}>
                 <AnimatePresence>
