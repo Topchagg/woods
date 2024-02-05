@@ -1,9 +1,9 @@
 import { useState } from "react"
 
-
-import { handleOnChange } from "../handles"
+import { handleOnChange,handleOnChangeImg } from "../handles"
 import { usePost } from "../customHooks"
 import { validOnlyChar,validOnlyNumb,checkIsValid } from "../scripts"
+
 
 import Button from "./button"
 
@@ -12,23 +12,30 @@ import Button from "./button"
 
 const UpdateItemForm = (props) => {
 
-    const {postData,isLoading,response,error} = usePost('PUT')
-
-    const handleOnUpdate = async () => {
-        const data = {
-            'name':name,
-            'price':price,
-            'image':'http://localhost:5173/products'
-        }
-
-        postData('http://127.0.0.1:8000/update-product/' + props.pk,data)
-    }
-
     const [nameIsValid,setNameIsValid] = useState(true)
     const [name,setName] = useState(props.name)
     const[priceIsValid,setPriceIsValid] = useState(true)
     const [price,setPrice] = useState(props.price)
-    const [image,setImage] = useState('')
+    const [image,setImage] = useState(props.image)
+    const [imageIsLoaded, setImageIsLoaded] = useState(true)
+
+    const {postData,isLoading,response,error} = usePost('PUT')
+
+
+    const handleOnUpdate = async () => {
+
+        const isValid = checkIsValid([nameIsValid,priceIsValid])
+
+        if(isValid && imageIsLoaded){
+            const data = {
+                'name':name,
+                'price':price,
+                'image': image
+            }
+            postData('http://127.0.0.1:8000/update-product/' + props.pk,data)
+        }
+    }
+
 
     const inputPriceStyle =  priceIsValid ?  'default-input' : 'is-not-valid-input'
     const inputNameStyle = nameIsValid ? 'default-input' : 'is-not-valid-input'
@@ -37,8 +44,8 @@ const UpdateItemForm = (props) => {
         <form action="">
                 <label htmlFor="file-input">
                     <div className="img-input-wrapper text-center main-text">
-                        Image
-                        <input className="to-hide" id="file-input" type="file" onChange={(e) => ('s')} />
+                        {imageIsLoaded && <>Image</> || <>Loading...</>}
+                        <input className="to-hide" id="file-input" type="file" onChange={(e) => handleOnChangeImg(e,setImage,image,'product-images/',setImageIsLoaded)} />
                     </div>      
                 </label>
             <input className={inputNameStyle} placeholder="Name of product" type="text" value={name} onChange={(e) => validOnlyChar(handleOnChange,setName,e.target.value,2,20,setNameIsValid)} />

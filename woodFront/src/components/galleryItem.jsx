@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { useDelete,usePost } from '../customHooks'
+import { handleOnDelete } from '../handles'
 
 import Button from './button'
 import UpdateItemForm from './updateItemForm'
@@ -14,9 +15,6 @@ const GalleryItem = (props) => {
     const [isUpdate,setIsUpdate] = useState(false)
     const {deleteData,isLoading,error} = useDelete()
 
-    const handleOnDelete = (id) => {
-        deleteData(id)
-    }
     
     if(isUpdate){
         return (
@@ -32,7 +30,7 @@ const GalleryItem = (props) => {
             <div className="product-item-wrapper">
                 {isAdmin && 
                 <div className="admin-panel-wrapper">
-                    <div style={{width:200}} onClick={() => handleOnDelete('http://127.0.0.1:8000/delete-product/' + props.pk)} >
+                    <div style={{width:200}} onClick={() => handleOnDelete(deleteData,'http://127.0.0.1:8000/delete-product/' + props.pk,props.image)} >
                         <Button text={'Delete'}/>
                     </div>
                     <div style={{width:200}} onClick={() => setIsUpdate(!isUpdate)}>

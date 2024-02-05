@@ -6,7 +6,6 @@ from .serializers import *
 
 class updatesConsumer(AsyncWebsocketConsumer):
     async def connect(self):
-        print('Websocket connected')
         await self.accept()
 
         await self.channel_layer.group_add('updates', self.channel_name)
@@ -16,6 +15,5 @@ class updatesConsumer(AsyncWebsocketConsumer):
 
     async def send_notification(self, event):
         message = event['message']
-        print('something')
         await self.send(text_data=json.dumps({'type': 'notification.message', 'message': message}))
        
